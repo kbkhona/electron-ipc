@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Electron IPC</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div class="mainDiv">
+        <h3>Trigger Netflix Automation</h3> 
+    </div>
+    <div>
+      <label for="username">Enter Username</label>
+      <input id="username" type="text" name="username"/> 
+    </div>
+    <div>
+      <label for="password">Enter Password</label>
+      <input id="password" type="text" name="password"/>
+    </div>
+    <div>
+      <button id="enter">Enter</button>
+    </div>
+  </body>
+  <script src="helper.js"></script>
+</html>
