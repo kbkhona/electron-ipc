@@ -11,12 +11,27 @@ const createWindow = (pathToPreload) => {
   })
   return win
 }
+var taskWindow
 
 app.whenReady().then(() => {
   let win = createWindow('preloadMain.js')
   win.loadFile('index.html')
   ipcMain.on("triggerNetflix", handleNetflixAutomation)
+
+  //create new Renderer window for tasks
+  taskWindow = createWindow('preloadTasks.js')
+  taskWindow.loadFile("tasks.html")
+  //Task add to renderer
+  ipcMain.on("addTaskToRenderer", handleAddTaskRenderer)
 })
+
+async function handleAddTaskRenderer(e, taskInput) {
+  console.log("in handleAddTaskRenderer", taskInput)
+  let wc = taskWindow.webContents
+  wc.openDevTools();
+  wc.send("receiveNewTask", taskInput)
+}
+
 
 async function handleNetflixAutomation(e, [name, password]) {
   console.log("in handleNetflixAutomation")

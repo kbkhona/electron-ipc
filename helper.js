@@ -6,3 +6,7 @@ function clickHandler() {
 }
 
 document.getElementById("enter").addEventListener("click", clickHandler)
+
+document.getElementById("addtask_button").addEventListener("click", window.myAPI.addTaskHandler)
+
+// document.getElementById("deletetask_button").addEventListener("click", window.myAPI.deleteTaskHandler)
